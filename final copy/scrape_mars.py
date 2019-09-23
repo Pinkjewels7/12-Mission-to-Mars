@@ -45,7 +45,7 @@ def jpl_image(browser):
 
     browser.click_link_by_partial_text('FULL IMAGE')
     sleep(3)
-    browser.click_link_by_partial_text('more info')
+    browser.click_link_by_partial_text('MORE')
 
     html = browser.html
     image_soup = BeautifulSoup(html, 'html.parser')
@@ -69,13 +69,10 @@ def mars_facts():
     mars_df.columns = ['Property', 'Value']
     mars_df.set_index('Property', inplace = True)
 
-    return mars_df.to_html(classes = 'table table-striped')
+    return mars_df.to_html(classes = 'table')
     
 def mars_hemis(browser):
-    #The website listed was down at the time of the assignment. An archive link was used as an alternative. 
-    # url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
-
-    url = 'https://web.archive.org/web/20181114171728/https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
+    url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(url)
 
     hemisphere_image_urls = []
